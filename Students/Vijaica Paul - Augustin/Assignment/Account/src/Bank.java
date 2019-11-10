@@ -1,32 +1,24 @@
 public class Bank {
 	public Account[] account = new Account[100];
 
-	public Account openAcc(int t, int i) {
-		if (t == 1) {
+	public Account openAccount(int i) {{
 			account[i] = new Account(i);
-		} else if (t == 2) {
+			i++;
 			account[i] = new SavingsAccount(0, i);
-		} else if (t == 3) {
+			i++;
 			account[i] = new CurrentAccount(-300, i);
-		} else {
-			System.out.println("Numarul introdus nu reprezinta un cont.");
-		}
-		return account[i];
+			return account[i];
 	}
 
-	public void updateAcc(int i, int a) {
+	public void updateAccount(int i, int a) {
 		if (i == 2) {
-			((SavingsAccount) account[i]).addInterest(a);
+			((SavingsAccount)account[i]).addInterest(a);
 		} else if (i == 3) {
-			double currentBalance = account[i].getBalance();
+			double newBalance = account[i].getBalance();
 			int limit = ((CurrentAccount) account[i]).getOverdraftLimit();
-			if (currentBalance < 0) {
-				if (currentBalance > limit) {
-					System.out.println("Overdraft! Mai aveti " + (-limit + currentBalance)
-							+ " pana la limita.");
-				} else {
-					System.out.println(
-							"Ati atins/depasit overdraft. Nu mai puteti retrage numerar.");
+			if (newBalance < 0) {
+				if (newBalance <= limit) {
+					System.out.println("Ati atins/depasit overdraft. Nu mai puteti retrage numerar.");
 				}
 			}
 		}
@@ -36,7 +28,7 @@ public class Bank {
 		account[i].deposit(divident);
 	}
 
-	public void closeAcc(int i) {
-		System.out.println("Contul nr. " + i + " a fost inchis.");
+	public void closeAccount(int i) {
+		System.out.println("Contul " + i + " a fost inchis.");
 	}
 }
