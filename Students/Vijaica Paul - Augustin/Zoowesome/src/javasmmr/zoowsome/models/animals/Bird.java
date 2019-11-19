@@ -4,6 +4,10 @@ public abstract class Bird extends Animal {
 	private Boolean migrates;
 	private Integer avgFlightAltitude;
 	
+	public Bird(double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
+	}
+	
 	public Boolean getMigrates() {
         return migrates;
     }

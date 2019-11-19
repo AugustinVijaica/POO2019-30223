@@ -1,7 +1,8 @@
 package javasmmr.zoowsome.models.animals;
 
 public class Cockroach extends Insect  {
-	public Cockroach() {
+	public Cockroach(double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
 	setNumberOfLegs(6);
     setName("Blattella germanica");
     setFly(false);
@@ -12,7 +13,9 @@ public Cockroach(
         Integer numberOfLegs,
         String name,
         Boolean canFly,
-        Boolean dangerous) {
+        Boolean dangerous,
+        double maintenanceCost,double dangerPerc) {
+	super(maintenanceCost,dangerPerc);
     setNumberOfLegs(numberOfLegs);
     setName(name);
     setFly(canFly);

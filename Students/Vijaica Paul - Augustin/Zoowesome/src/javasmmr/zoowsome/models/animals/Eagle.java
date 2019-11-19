@@ -1,7 +1,8 @@
 package javasmmr.zoowsome.models.animals;
 
 public class Eagle extends Bird {
-	public Eagle() {
+	public Eagle(double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
 		setNumberOfLegs(2);
 		setName("Aquila pennata");
 		setMigrates(true);
@@ -11,7 +12,9 @@ public class Eagle extends Bird {
             Integer numberOfLegs,
             String name,
             Boolean migrates,
-            Integer avgFlightAltitude) {
+            Integer avgFlightAltitude,
+            double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
         setNumberOfLegs(numberOfLegs);
         setName(name);
         setMigrates(migrates);

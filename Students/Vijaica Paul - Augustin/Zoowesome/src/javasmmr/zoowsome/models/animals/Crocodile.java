@@ -1,7 +1,8 @@
 package javasmmr.zoowsome.models.animals;
 
 public class Crocodile extends Reptile{
-	public Crocodile() {
+	public Crocodile(double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
 		setNumberOfLegs(4);
 		setName("Crocodylus niloticus");
 		setEggs(true);
@@ -9,7 +10,9 @@ public class Crocodile extends Reptile{
 	 public Crocodile(
 	            Integer numberOfLegs,
 	            String name,
-	            Boolean laysEggs) {
+	            Boolean laysEggs,
+	            double maintenanceCost,double dangerPerc) {
+			super(maintenanceCost,dangerPerc);
 	        setNumberOfLegs(numberOfLegs);
 	        setName(name);
 	        setEggs(laysEggs);

@@ -4,6 +4,10 @@ public abstract class Insect extends Animal {
 	private Boolean canFly;
 	private Boolean isDangerous;
 	
+	public Insect(double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
+	}
+	
 	public Boolean getFly() {
 		return canFly;
 	}

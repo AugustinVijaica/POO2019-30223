@@ -9,11 +9,11 @@ public class ReptileFactory extends SpeciesFactory {
     @Override
     public Animal getAnimal(String type) {
         if (Constants.Animals.Reptiles.Crocodile.equals(type)) {
-            return new Crocodile();
+            return new Crocodile(4.1,0.91);
         } else if (Constants.Animals.Reptiles.Lizard.equals(type)) {
-            return new Lizard();
+            return new Lizard(5.4,0.54);
         } else if (Constants.Animals.Reptiles.Snake.equals(type)) {
-            return new Snake();
+            return new Snake(4.9,0.69);
         } else {
             return null;
         }

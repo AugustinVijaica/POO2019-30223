@@ -2,7 +2,8 @@ package javasmmr.zoowsome.models.animals;
 
 public class Tiger extends Mammal {
 	
-	public Tiger() {
+	public Tiger(double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
 		setNumberOfLegs(4);
 		setName("Panthera tigris");
 		setBodyTemp((float)35.5);
@@ -13,7 +14,9 @@ public class Tiger extends Mammal {
 	            Integer numberOfLegs,
 	            String name,
 	            Float normBodyTemp,
-	            Float percBodyCov) {
+	            Float percBodyCov,
+	            double maintenanceCost,double dangerPerc) {
+			super(maintenanceCost,dangerPerc);
 	        setNumberOfLegs(numberOfLegs);
 	        setName(name);
 	        setBodyTemp(normBodyTemp);

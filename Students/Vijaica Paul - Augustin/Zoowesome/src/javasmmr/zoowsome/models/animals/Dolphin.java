@@ -1,7 +1,8 @@
 package javasmmr.zoowsome.models.animals;
 
 public class Dolphin extends Aquatic {
-	public Dolphin (){
+	public Dolphin (double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
 		setNumberOfLegs(0);
 		setName("Actinopterygii");
 		setAvgSwimDepth(350);
@@ -12,7 +13,9 @@ public class Dolphin extends Aquatic {
             Integer numberOfLegs,
             String name,
             Integer avgSwimDepth,
-            WaterType waterType) {
+            WaterType waterType,
+            double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
         setNumberOfLegs(numberOfLegs);
         setName(name);
         setAvgSwimDepth(avgSwimDepth);

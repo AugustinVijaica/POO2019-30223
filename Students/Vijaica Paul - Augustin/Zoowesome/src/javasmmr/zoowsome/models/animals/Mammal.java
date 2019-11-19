@@ -2,6 +2,10 @@ package javasmmr.zoowsome.models.animals;
 
 public abstract class Mammal extends Animal {
 	
+	public Mammal(double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
+	}
+	
 	private Float normBodyTemp;
 	private Float percBodyCov;
 	

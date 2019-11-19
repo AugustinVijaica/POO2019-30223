@@ -1,7 +1,8 @@
 package javasmmr.zoowsome.models.animals;
 
 public class Seahorse extends Aquatic {
-	public Seahorse() {
+	public Seahorse(double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
 		setNumberOfLegs(0);
 		setName("Hippocampus");
 		setAvgSwimDepth(30);
@@ -12,10 +13,13 @@ public class Seahorse extends Aquatic {
             Integer numberOfLegs,
             String name,
             Integer avgSwimDepth,
-            WaterType waterType) {
+            WaterType waterType,
+            double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
         setNumberOfLegs(numberOfLegs);
         setName(name);
         setAvgSwimDepth(avgSwimDepth);
         setWaterType(waterType);
+        
     }
 }

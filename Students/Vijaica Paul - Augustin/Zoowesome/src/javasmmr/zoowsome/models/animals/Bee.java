@@ -1,7 +1,8 @@
 package javasmmr.zoowsome.models.animals;
 
 public class Bee extends Insect {
-	public Bee() {
+	public Bee(double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
 		setNumberOfLegs(6);
 	    setName("Anthophila");
 	    setFly(true);
@@ -12,7 +13,9 @@ public class Bee extends Insect {
 	        Integer numberOfLegs,
 	        String name,
 	        Boolean canFly,
-	        Boolean dangerous) {
+	        Boolean dangerous,
+	        double maintenanceCost,double dangerPerc) {
+		super(maintenanceCost,dangerPerc);
 	    setNumberOfLegs(numberOfLegs);
 	    setName(name);
 	    setFly(canFly);
