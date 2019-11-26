@@ -1,9 +1,17 @@
 package javasmmr.zoowsome.models.animals;
 
+import static javasmmr.zoowsome.repositories.AnimalRepository.createNode;
+
+import javax.xml.stream.XMLEventWriter;
+import javax.xml.stream.XMLStreamException;
+
+import javasmmr.zoowsome.services.factories.Constants;
+
 public class Tiger extends Mammal {
 	
-	public Tiger(double maintenanceCost,double dangerPerc) {
-		super(maintenanceCost,dangerPerc);
+	public Tiger() {
+		setMaintenanceCost(4.9);
+	    setDangerPerc(0.73);
 		setNumberOfLegs(4);
 		setName("Panthera tigris");
 		setBodyTemp((float)35.5);
@@ -16,11 +24,19 @@ public class Tiger extends Mammal {
 	            Float normBodyTemp,
 	            Float percBodyCov,
 	            double maintenanceCost,double dangerPerc) {
-			super(maintenanceCost,dangerPerc);
+		 	setMaintenanceCost(maintenanceCost);
+		    setDangerPerc(dangerPerc);
 	        setNumberOfLegs(numberOfLegs);
 	        setName(name);
 	        setBodyTemp(normBodyTemp);
 	        setBodyCov(percBodyCov);
 	 }
+	 
+
+		public void encodeToXml(XMLEventWriter eventWriter) throws XMLStreamException
+		{
+		super.encodeToXml(eventWriter);
+		createNode(eventWriter, Constants.XML_TAGS.DISCRIMINANT,Constants.Animals.Mammals.Tiger);
+		}
 
 }

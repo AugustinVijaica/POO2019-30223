@@ -7,11 +7,11 @@ public class BirdFactory extends SpeciesFactory {
     @Override
     public Animal getAnimal(String type) {
         if (Constants.Animals.Birds.Parrot.equals(type)) {
-            return new Parrot(2.1,0.01);
+            return new Parrot();
         } else if (Constants.Animals.Birds.Swallow.equals(type)) {
-            return new Swallow(1.1,0.01);
+            return new Swallow();
         } else if (Constants.Animals.Birds.Eagle.equals(type)) {
-            return new Eagle(4.5,0.45);
+            return new Eagle();
         } else {
             return null;
         }

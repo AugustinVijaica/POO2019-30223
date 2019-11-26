@@ -1,13 +1,21 @@
 package javasmmr.zoowsome.controllers;
 import javasmmr.zoowsome.models.employees.*;
+import javasmmr.zoowsome.repositories.AnimalRepository;
 
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLStreamException;
+
+import org.xml.sax.SAXException;
 
 import javasmmr.zoowsome.models.animals.Animal;
 import javasmmr.zoowsome.services.factories.*;
 
 public class MainController {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, XMLStreamException {
 		AnimalFactory Aquatic = new AnimalFactory();
 		AnimalFactory Bird = new AnimalFactory();
 		AnimalFactory Insect = new AnimalFactory();
@@ -28,6 +36,11 @@ public class MainController {
 		animal[3] = speciesFactoryMammal.getAnimal(Constants.Animals.Mammals.Tiger);
 		animal[4] = speciesFactoryReptile.getAnimal(Constants.Animals.Reptiles.Crocodile);
 
+		ArrayList<Animal>list=new ArrayList<Animal>();
+		
+		list.add(animal[0]);
+		list.add(animal[1]);
+		list.add(animal[2]);
 		
 
 		Caretaker[] employee=new Caretaker[5];
@@ -56,13 +69,31 @@ public class MainController {
 						}
 						
 					} else {
-						animal[j].settakenCareOf(true);
+						animal[j].setTakenCareOf(true);
 						System.out.println("The "+animal[j].getName()+ " has got taken care of by "+employee[i].getName());
 					}
 				}
 			}
 		}
-
+		System.out.println();
+		AnimalRepository animallist=new AnimalRepository();
+		animallist.save(list);
+		ArrayList<Animal>XML=animallist.load();
+		for(Animal c : XML) {
+			System.out.println(c.getName());
+		}
+		System.out.println();
+		list.add(animal[3]);
+		list.add(animal[4]);
+		list.remove(0);
+		
+		animallist.save(list);
+		XML=animallist.load();
+		
+		for(Animal c : XML) {
+			System.out.println(c.getName());
+		}
+		
 	}
 
 }
