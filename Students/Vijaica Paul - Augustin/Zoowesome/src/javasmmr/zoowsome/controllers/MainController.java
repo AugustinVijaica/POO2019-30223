@@ -86,6 +86,7 @@ public class MainController {
 		list.add(animal[3]);
 		list.add(animal[4]);
 		list.remove(0);
+		list.remove(2);
 		
 		animallist.save(list);
 		XML=animallist.load();
@@ -93,7 +94,6 @@ public class MainController {
 		for(Animal c : XML) {
 			System.out.println(c.getName());
 		}
-		
 	}
 
 }
